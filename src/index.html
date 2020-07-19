@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link rel="stylesheet" href="./src/css/index.css"/>
+    <link rel="stylesheet" href="css/index.min.css" />
+    <!-- <link rel="stylesheet" href="./src/style/main.css" /> -->
+    <!-- <link rel="stylesheet" href="./src/style/switchStyle.css" /> -->
+    <title>shopping list Webpack app</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="title-container">
+        <h1>Make shopping list!</h1>
+      </div>
+      <div class="input-label">
+        <form id="form">
+          <label
+            >amount:<input
+              type="text"
+              class="amount-item-input"
+              placeholder="Put amount"
+              value=""
+          /></label>
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+          </div>
+          <br />
+          <label
+            >product:
+            <input
+              type="text"
+              class="item-name-input"
+              placeholder="Put product name."
+              value=""
+          /></label>
+          <button type="button" id="btn">Click to add!</button>
+        </form>
+        <p id="unit-id">unit</p>
+        <select id="category-selector" value="vegetables">
+          <option selected value="vegetables">vegetables:</option>
+          <option value="fruits">fruits:</option>
+          <option value="milk">milk:</option>
+          <option value="baking">baking:</option>
+          <option value="meat">meat:</option>
+          <option value="sea-food">sea food:</option>
+          <option value="hygiene">hygiene:</option>
+        </select>
+      </div>
+      <div class="shopping-list-container">
+        <!-- dynamically added -->
+      </div>
+      <button type="button" id="delete-all-id">delate all!</button>
+      <button type="button" id="print-shopping-list">Print list!</button>
+      <label class="summary-label">products summary</label>
+      <div class="possible-products-names">
+        <!-- dynamically added -->
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/index.min.js"></script>
+  <!-- <script src="./src/js/index.js"></script> -->
+</html>

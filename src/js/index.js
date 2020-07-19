@@ -1,0 +1,16 @@
+import moment from "moment";
+import showDate from "./showDate";
+import shoppingListHolderAdd from "./listHolder";
+import eachProductProcess from "./eachProductProcess";
+import productsData from "./productsData";
+import summaryModule from "./summaryModule";
+import deleteItems from './deleteItems';
+// import categorySet from './categorySet';
+// const categoryArray = ["vegetables", "fruits", "milk", "baking", "meat", "sea-food", "hygiene"];
+// categorySet();
+showDate();
+deleteItems();
+productsData();
+eachProductProcess();
+shoppingListHolderAdd();
+summaryModule();
