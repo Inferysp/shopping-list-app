@@ -1,7 +1,11 @@
 Shopping list aplication.
 
-npm install
+Application use:
 
-npm install moment --save 
+1. clone repository
 
-npm start
+2. cd ./shopping-list-app
+
+3. npm install
+
+4. npm start
