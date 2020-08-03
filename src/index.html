@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
-    <link rel="stylesheet" href="./src/css/index.css"/>
     <link rel="stylesheet" href="css/index.min.css" />
     <title>shopping list Webpack app</title>
   </head>
@@ -15,53 +14,74 @@
       </div>
       <div class="input-label">
         <form id="form">
-          <label
-            >amount:<input
-              type="text"
-              class="amount-item-input"
-              placeholder="Put amount"
-              value=""
-          /></label>
-          <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
-            <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
+          <div class="units-container">
+            <label
+              >amount:<input
+                type="number"
+                class="amount-item-input"
+                placeholder="Put amount"
+                max="10"
+                min= '1'
+            /></label>
+            <div id="units-radio">
+              <input type="radio" value="kg" name="units" id="radio_1" checked>
+              <label for="radio_1">kg</label>
+              <input type="radio" value="pieces" name="units" id="radio_1">
+              <label for="radio_2">pieces</label>
+            </div>
           </div>
-          <br />
-          <label
-            >product:
-            <input
-              type="text"
-              class="item-name-input"
-              placeholder="Put product name."
-              value=""
-          /></label>
-          <button type="button" id="btn">Click to add!</button>
+          <div class="product-name-container">
+            <label
+              >product:
+              <input
+                type="text"
+                class="item-name-input"
+                placeholder="Put product name."
+                value=""
+            /></label>
+          </div>
         </form>
-        <p id="unit-id">unit</p>
-        <select id="category-selector" value="vegetables">
-          <option selected value="vegetables">vegetables:</option>
-          <option value="fruits">fruits:</option>
-          <option value="milk">milk:</option>
-          <option value="baking">baking:</option>
-          <option value="meat">meat:</option>
-          <option value="sea-food">sea food:</option>
-          <option value="hygiene">hygiene:</option>
-        </select>
+        <div class="category-and-button-container">
+          <label>Choose Category: 
+            <select id="category-selector" value="vegetables">
+              <option selected value="vegetables">vegetables:</option>
+              <option value="fruits">fruits:</option>
+              <option value="milk">milk:</option>
+              <option value="baking">baking:</option>
+              <option value="meat">meat:</option>
+              <option value="sea-food">sea food:</option>
+              <option value="hygiene">hygiene:</option>
+            </select>
+          </label>
+          <button type="button" id="btn">Click to add!</button>
+        </div>
       </div>
       <div class="shopping-list-container">
         <!-- dynamically added -->
       </div>
-      <button type="button" id="delete-all-id">delate all!</button>
-      <button type="button" id="print-shopping-list">Print list!</button>
-      <label class="summary-label">products summary</label>
-      <div class="possible-products-names">
-        <!-- dynamically added -->
+      <div class="few-options-container">
+        <button type="button" id="delete-all-id">delate all!</button>
+        <button type="button" id="print-shopping-list">Print list!</button>
+        <label class="summary-label">products summary</label>
+      </div>
+      <div class="drag-and-drop">
+        <div class="categories-and-drop-zone-section">
+          <div class="categories-drag-and-drop-container">
+            <!-- dynamically added -->
+          </div>
+          <div id="target"
+            class="drop-zone">
+            Drop Zone !!!
+          </div>
+        </div>
+        <div class="possible-products-names">
+          <!-- dynamically added -->
+        </div>
       </div>
     </div>
   </body>
   <script type="text/javascript" src="js/index.min.js"></script>
-  <!-- <script src="./src/js/index.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+  integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+  crossorigin="anonymous"></script>
 </html>
