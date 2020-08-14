@@ -3,6 +3,7 @@ import shoppingListHolderAdd from './listHolder';
 import eachProductProcess from './eachProductProcess';
 import productsData from './productsData';
 import printListToPdf from './printListToPdf';
+import rememberSesionList from './rememberSesionList';
 
 const categoryArray = [
   'vegetables',
@@ -16,6 +17,7 @@ const categoryArray = [
 
 showDate();
 productsData(categoryArray);
-eachProductProcess(categoryArray);
 shoppingListHolderAdd(categoryArray);
+eachProductProcess(categoryArray);
 printListToPdf();
+rememberSesionList();

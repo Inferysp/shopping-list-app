@@ -1,7 +1,4 @@
 const Path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -13,14 +10,6 @@ module.exports = {
     filename: '[name].min.js',
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: Path.resolve(__dirname, '../src/index.html') },
-      { from: Path.resolve(__dirname, '../src/img'), to: 'img' },
-    ]),
-    new FixStyleOnlyEntriesPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].min.css',
-    }),
   ],
   resolve: {
     alias: {
@@ -42,10 +31,6 @@ module.exports = {
             name: '[path][name].[ext]',
           },
         },
-      },
-      {
-        test: /\.s?css/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
     ],
   },

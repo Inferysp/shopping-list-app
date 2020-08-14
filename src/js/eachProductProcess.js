@@ -1,14 +1,25 @@
 import shoppingListHolderAdd from './listHolder';
 
 export default function eachProductProcess(categoryArray) {
-  let categoryChoosed = null;
-  let unit = null;
-  let comma = '';
-  let i = 0;
-  let productsInCategoryArray = [0, 0, 0, 0, 0, 0, 0];
-  const summary = document.querySelector('.summary-label');
-  const choosedCategoryName = document.getElementById('category-selector');
+  const btn = document.getElementById('btn');
+  const summary = document.querySelector('.summary-input-label');
   const shoppingList = document.querySelector('.shopping-list-container');
+  const deleteBtn = document.querySelector('#delete-all-id');
+  const choosedCategoryName = document.getElementById('cat-selector');
+  const inputAmount = document.querySelector('.amount-item-input');
+  const inputItem = document.querySelector('.item-name-input');
+
+  let auxArray = [0, 0, 0, 0, 0, 0, 0];
+  let categoryChoosed = null;
+  let i = 0;
+  let unit = null;
+
+  const countAllProducts = () => {
+    const b = document.querySelector('.category-list-container');
+    const countProducts = b.getElementsByTagName('p');
+    i = countProducts.length;
+    return i;
+  };
 
   const categorySet = () => {
     switch (choosedCategoryName.value) {
@@ -39,57 +50,52 @@ export default function eachProductProcess(categoryArray) {
     return categoryChoosed;
   };
 
+  const lastOperations = () => {
+    inputAmount.value = null;
+    inputItem.value = null;
+    countAllProducts();
+    summary.innerHTML = `<small>${i} from input</small>`;
+  };
+
   const unitsSet = () => {
     unit = document.querySelector('input[name=units]:checked').value;
     return unit;
   };
 
-  function putMeSomewhere() {
-    const nextProduct = document.createElement('p');
-
-    function removeEachElement() {
-      nextProduct.remove();
-      i -= 1;
-      summary.innerText = `${i} prod.`;
-      // checkIfCommaAfterProductRemoval();
-    }
-
+  const productProcess = () => {
     categorySet();
     unitsSet();
+    const nextProduct = document.createElement('p');
     const destiny = document.getElementById(`${categoryChoosed}-container`);
-    const inputNumber = document.querySelector('.amount-item-input');
-    const inputItem = document.querySelector('.item-name-input');
+    const auxiliaryIndex = categoryArray.indexOf(categoryChoosed);
+    auxArray[auxiliaryIndex] += 1;
 
-    const productsInCategoryArrayIndex = categoryArray.indexOf(categoryChoosed);
-    productsInCategoryArray[categoryArray.indexOf(categoryChoosed)] += 1;
-    nextProduct.id = `${categoryChoosed}-${productsInCategoryArray[productsInCategoryArrayIndex]}`;
+    nextProduct.id = `${categoryChoosed}-${auxArray[auxiliaryIndex]}`;
     nextProduct.className = 'each-product-paragraph';
-    function productWithComaFunction() {
-      comma = productsInCategoryArray[productsInCategoryArrayIndex] === 1 ? '' : ',';
-    }
-    productWithComaFunction();
-    nextProduct.innerText = `${comma} ${inputNumber.value} ${unit} ${inputItem.value} `;
+    nextProduct.innerHTML = `<small>${inputAmount.value} ${unit} ${inputItem.value}</small>`;
+
     destiny.appendChild(nextProduct);
-    inputItem.value = '';
-    inputNumber.value = '';
-    i += 1;
-    summary.innerText = `${i} prod.`;
+
+    lastOperations();
+
+    const removeEachElement = () => {
+      nextProduct.remove();
+      countAllProducts();
+      summary.innerHTML = `<small>${i} from input</small>`;
+    };
 
     nextProduct.addEventListener('click', removeEachElement);
+  };
 
-    function deleteAllProducts() {
-      const categoryList = document.querySelector('.category-list-container');
-      shoppingList.removeChild(categoryList);
-      shoppingListHolderAdd(categoryArray);
-      i = 0;
-      summary.innerText = `${i} prod.`;
-      productsInCategoryArray = [0, 0, 0, 0, 0, 0, 0];
-    }
+  const deleteAllProducts = () => {
+    const categoryList = document.querySelector('.category-list-container');
+    shoppingList.removeChild(categoryList);
+    shoppingListHolderAdd(categoryArray);
 
-    const deleteBtn = document.querySelector('#delete-all-id');
-    deleteBtn.addEventListener('click', deleteAllProducts);
-  }
+    lastOperations();
+    auxArray = [0, 0, 0, 0, 0, 0, 0];
+  };
 
-  const btn = document.getElementById('btn');
-  btn.addEventListener('click', putMeSomewhere);
+  deleteBtn.addEventListener('click', deleteAllProducts);
+  btn.addEventListener('click', productProcess);
 }

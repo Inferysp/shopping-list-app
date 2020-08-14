@@ -1,55 +1,61 @@
 import dragAndDrop from './dragAndDrop';
+
 export default function dragItemsToggle(e, categoryArray) {
-  const categoriesHolder = document.querySelector('.categories-drag-and-drop-container');
+  const categoriesHolder = document.querySelector(
+    '.categories-drag-and-drop-container',
+  );
   const productsHolder = document.querySelector('.possible-products-names');
   let clickedCat = '';
 
-  function setToClicked() {
+  const setToClicked = () => {
     clickedCat = '-clicked';
-  }
+  };
 
-  function setToNormal() {
+  const setToNormal = () => {
     clickedCat = '';
-  }
+  };
+
+  dragAndDrop();
+  const dragstart = (ev) => {
+    const event = ev;
+    event.dataTransfer.dropEffect = 'copy';
+    event.dataTransfer.setData('text', ev.target.id);
+  };
 
   categoryArray.forEach((element, idx) => {
     const eachCategory = document.createElement('div');
     eachCategory.innerText = `${element}`;
     eachCategory.className = 'categories-drag-and-drop';
-    eachCategory.id = `${element}-${Math.floor(Math.random()*100)}`;
+    eachCategory.id = `${element}-${Math.floor(Math.random() * 100)}`;
     categoriesHolder.appendChild(eachCategory);
 
-    function showByToggle() {
-      const lastClicked = document.querySelector(`.categories-drag-and-drop${clickedCat}`);
+    const showByToggle = () => {
+      const lastClicked = document.querySelector(
+        `.categories-drag-and-drop${clickedCat}`,
+      );
       lastClicked.className = 'categories-drag-and-drop';
       setToNormal();
-
-      dragAndDrop();
-      function dragstart(ev) {
-        ev.dataTransfer.dropEffect = 'copy';
-        ev.dataTransfer.setData('text', ev.target.id);
-      }
 
       e[idx].forEach((el) => {
         const eachProduct = document.createElement('div');
         eachProduct.innerText = `${el}`;
-        eachProduct.id = `${el}-id`;
+        eachProduct.id = `${el}-${categoryArray[idx]}`;
         eachProduct.className = 'products-drag-and-drop';
         eachProduct.draggable = true;
         productsHolder.appendChild(eachProduct);
         eachProduct.addEventListener('dragstart', dragstart);
       });
-    }
+    };
 
-    function childrenRemove() {
+    const childrenRemove = () => {
       while (productsHolder.hasChildNodes()) {
         productsHolder.removeChild(productsHolder.firstChild);
       }
-    }
+    };
 
-    const chooseProductsList = (event) => {
+    const chooseProductsList = (ev) => {
       childrenRemove();
-      //Usuwanie po 2 kliknięciu w ten sam element.
+      const event = ev;
       if (event.target.className === 'categories-drag-and-drop-clicked') {
         event.target.className = 'categories-drag-and-drop';
         childrenRemove();

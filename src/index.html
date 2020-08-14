@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie-edge" />
@@ -16,23 +33,45 @@
         <form id="form">
           <div class="units-container">
             <label
-              >amount:<input
+              ><a>Amount:</a>
+              <input
                 type="number"
                 class="amount-item-input"
                 placeholder="Put amount"
                 max="10"
-                min= '1'
-            /></label>
+                min="1"
+              />
+            </label>
             <div id="units-radio">
-              <input type="radio" value="kg" name="units" id="radio_1" checked>
-              <label for="radio_1">kg</label>
-              <input type="radio" value="pieces" name="units" id="radio_1">
-              <label for="radio_2">pieces</label>
+              <input
+                type="radio"
+                value="kg"
+                name="units"
+                id="radio_1"
+                checked
+              />
+              <label for="radio_1"><a>kg</a></label>
+              <input type="radio" value="pieces" name="units" id="radio_1" />
+              <label for="radio_2"><a>pieces</a></label>
             </div>
+          </div>
+          <div class="category-selector">
+            <label
+              ><a>Category:</a>
+              <select id="cat-selector" value="vegetables">
+                <option selected value="vegetables">vegetables:</option>
+                <option value="fruits">fruits:</option>
+                <option value="milk">milk:</option>
+                <option value="baking">baking:</option>
+                <option value="meat">meat:</option>
+                <option value="sea-food">sea food:</option>
+                <option value="hygiene">hygiene:</option>
+              </select>
+            </label>
           </div>
           <div class="product-name-container">
             <label
-              >product:
+              ><a>Product:</a>
               <input
                 type="text"
                 class="item-name-input"
@@ -41,36 +80,36 @@
             /></label>
           </div>
         </form>
-        <div class="category-and-button-container">
-          <label>Choose Category: 
-            <select id="category-selector" value="vegetables">
-              <option selected value="vegetables">vegetables:</option>
-              <option value="fruits">fruits:</option>
-              <option value="milk">milk:</option>
-              <option value="baking">baking:</option>
-              <option value="meat">meat:</option>
-              <option value="sea-food">sea food:</option>
-              <option value="hygiene">hygiene:</option>
-            </select>
-          </label>
-          <button type="button" id="btn">Click to add!</button>
-        </div>
+        <button class="Button" type="button" id="btn">Click to add!</button>
       </div>
       <div class="shopping-list-container">
         <!-- dynamically added -->
       </div>
       <div class="few-options-container">
-        <button type="button" id="delete-all-id">delate all!</button>
-        <button type="button" id="print-shopping-list">Print list!</button>
-        <label class="summary-label">products summary</label>
+        <button class="Button" type="button" id="delete-all-id">
+          delate all!
+        </button>
+        <button class="Button" type="button" id="print-shopping-list">
+          Print list!
+        </button>
+        <div class="summary-label">
+          <a class="summary-label-text">Summary:</a>
+          <div class="two-summary-fields">
+            <label class="summary-input-label"
+              ><small>Input products </small></label
+            >
+            <label class="summary-dropped-elements"
+              ><small>Dropped elements</small></label
+            >
+          </div>
+        </div>
       </div>
       <div class="drag-and-drop">
         <div class="categories-and-drop-zone-section">
           <div class="categories-drag-and-drop-container">
             <!-- dynamically added -->
           </div>
-          <div id="target"
-            class="drop-zone">
+          <div id="target" class="drop-zone">
             Drop Zone !!!
           </div>
         </div>
@@ -81,7 +120,4 @@
     </div>
   </body>
   <script type="text/javascript" src="js/index.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
-  integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
-  crossorigin="anonymous"></script>
 </html>
