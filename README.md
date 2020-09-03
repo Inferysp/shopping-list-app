@@ -1,6 +1,6 @@
 Shopping list aplication.
 
-...in progress.
+...in progress. Aplication works but I need to finish a few things.
 
 Application use:
 
