@@ -1,10 +1,8 @@
-import "../scss/index.scss";
 import showDate from "./showDate";
 import shoppingListHolderAdd from "./listHolder";
 import eachProductProcess from "./eachProductProcess";
-import productsData from "./productsData";
+import productsData from "./productsData/productsData";
 import printListToPdf from "./printListToPdf";
-import rememberSesionList from "./rememberSesionList";
 
 const categoryArray = [
   "vegetables",
@@ -12,7 +10,7 @@ const categoryArray = [
   "milk",
   "baking",
   "meat",
-  "sea-food",
+  "seaFood",
   "hygiene",
 ];
 
@@ -21,4 +19,3 @@ productsData(categoryArray);
 shoppingListHolderAdd(categoryArray);
 eachProductProcess(categoryArray);
 printListToPdf();
-rememberSesionList();

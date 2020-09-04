@@ -1,46 +1,46 @@
 export default function dropableProductProcess(el) {
-  const summary = document.querySelector('.summary-dropped-elements');
-  const dropZone = document.querySelector('.drop-zone');
-  const deleteBtn = document.querySelector('#delete-all-id');
+  const summary = document.querySelector(".summary-dropped-elements");
+  const dropZone = document.querySelector(".drop-zone");
+  const deleteBtn = document.querySelector("#delete-all-id");
   const categoryArray = [
-    'vegetables',
-    'fruits',
-    'milk',
-    'baking',
-    'meat',
-    'sea-food',
-    'hygiene',
+    "vegetables",
+    "fruits",
+    "milk",
+    "baking",
+    "meat",
+    "sea-food",
+    "hygiene",
   ];
   let auxDroppedArray = [0, 0, 0, 0, 0, 0, 0];
   let i = 0;
   let droppedElement = el;
 
   const countAllProducts = () => {
-    const listContainer = document.querySelector('.category-list-container');
-    const countSmallTags = listContainer.getElementsByTagName('small').length;
-    const countPTags = listContainer.getElementsByTagName('p').length;
+    const listContainer = document.querySelector(".category-list-container");
+    const countSmallTags = listContainer.getElementsByTagName("small").length;
+    const countPTags = listContainer.getElementsByTagName("p").length;
     i = countSmallTags - countPTags;
     return i;
   };
 
   const droppedProductAction = () => {
-    const inputAmount = document.querySelector('.amount-item-input');
-    const unit = document.querySelector('input[name=units]:checked').value;
+    const inputAmount = document.querySelector(".amount-item-input");
+    const unit = document.querySelector("input[name=units]:checked").value;
     const itemCategoryName = droppedElement.substring(
-      droppedElement.indexOf('-') + 1,
+      droppedElement.indexOf("-") + 1
     );
 
-    const productDroppedToList = document.createElement('small');
+    const productDroppedToList = document.createElement("small");
     const auxiliaryIndex = categoryArray.indexOf(itemCategoryName);
     const destinyDraggedItem = document.getElementById(
-      `${itemCategoryName}-container`,
+      `${itemCategoryName}-container`
     );
     const categoryDiv = document.getElementById(
-      `${itemCategoryName}-container`,
+      `${itemCategoryName}-container`
     );
     const itemTextSet = droppedElement.substring(
       0,
-      droppedElement.indexOf('-'),
+      droppedElement.indexOf("-")
     );
 
     productDroppedToList.id = `${itemCategoryName}-${auxDroppedArray[auxiliaryIndex]}`;
@@ -49,7 +49,7 @@ export default function dropableProductProcess(el) {
     destinyDraggedItem.appendChild(productDroppedToList);
 
     auxDroppedArray[auxiliaryIndex] = categoryDiv.getElementsByTagName(
-      'small',
+      "small"
     ).length;
     droppedElement = null;
     countAllProducts();
@@ -60,12 +60,12 @@ export default function dropableProductProcess(el) {
       countAllProducts();
       summary.innerHTML = `<small>${i} dropped</small>`;
       const element = document.getElementById(
-        `${productDroppedToList.className}`,
+        `${productDroppedToList.className}`
       );
       dropZone.removeChild(element);
     };
 
-    productDroppedToList.addEventListener('click', removeEachElement);
+    productDroppedToList.addEventListener("click", removeEachElement);
   };
   droppedProductAction();
 
@@ -77,11 +77,11 @@ export default function dropableProductProcess(el) {
 
   const deleteAllProductsInDropZone = () => {
     childrenRemove();
-    dropZone.innerText = 'Drop Zone !!!';
+    dropZone.innerText = "Drop Zone !!!";
     countAllProducts();
     summary.innerHTML = `<small>${i} dropped</small>`;
     auxDroppedArray = [0, 0, 0, 0, 0, 0, 0];
   };
 
-  deleteBtn.addEventListener('click', deleteAllProductsInDropZone);
+  deleteBtn.addEventListener("click", deleteAllProductsInDropZone);
 }

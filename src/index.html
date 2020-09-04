@@ -28,11 +28,13 @@
     <link rel="stylesheet" type="text/css" href="css/index.min.css" />
     <title>shopping list Webpack app</title>
   </head>
+
   <body>
     <div class="main-container">
       <div class="title-container">
         <h1>Make shopping list!</h1>
       </div>
+
       <div class="input-label">
         <form id="form">
           <div class="units-container">
@@ -59,6 +61,7 @@
               <label for="radio_2"><a>pieces</a></label>
             </div>
           </div>
+
           <div class="category-selector">
             <label
               ><a>Category:</a>
@@ -73,6 +76,7 @@
               </select>
             </label>
           </div>
+
           <div class="product-name-container">
             <label
               ><a>Product:</a>
@@ -86,16 +90,18 @@
         </form>
         <button class="Button" type="button" id="btn">Click to add!</button>
       </div>
-      <div class="shopping-list-container">
-        <!-- dynamically added -->
-      </div>
+
+      <div class="shopping-list-container"></div>
+
       <div class="few-options-container">
         <button class="Button" type="button" id="delete-all-id">
           delate all!
         </button>
+
         <button class="Button" type="button" id="print-shopping-list">
           Print list!
         </button>
+
         <div class="summary-label">
           <a class="summary-label-text">Summary:</a>
           <div class="two-summary-fields">
@@ -108,18 +114,16 @@
           </div>
         </div>
       </div>
+
       <div class="drag-and-drop">
         <div class="categories-and-drop-zone-section">
-          <div class="categories-drag-and-drop-container">
-            <!-- dynamically added -->
-          </div>
+          <div class="categories-drag-and-drop-container"></div>
           <div id="target" class="drop-zone">
             Drop Zone !!!
           </div>
         </div>
-        <div class="possible-products-names">
-          <!-- dynamically added -->
-        </div>
+
+        <div class="possible-products-names"></div>
       </div>
     </div>
   </body>
