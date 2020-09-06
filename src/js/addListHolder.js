@@ -1,4 +1,4 @@
-export default function shoppingListHolderAdd(categoryArray) {
+export default function addListHolder(categoryArray) {
   const shoppingListContainer = document.querySelector(
     '.shopping-list-container',
   );
@@ -12,6 +12,4 @@ export default function shoppingListHolderAdd(categoryArray) {
     eachCategoryBox.id = `${element}-container`;
     categoryContainer.appendChild(eachCategoryBox);
   });
-  // const categories = document.querySelector('.category-container');
-  // categories.style.textDecorationStyle = 'strong';
 }

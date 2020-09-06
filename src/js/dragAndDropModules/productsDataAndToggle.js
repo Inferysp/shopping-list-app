@@ -1,4 +1,4 @@
-import dragItemsToggle from "./dragItemsToggle";
+import toggleIndex from "./modules/toggleIndex";
 import vegetables from "./eachCategoryData/vegetables";
 import fruits from "./eachCategoryData/fruits";
 import milk from "./eachCategoryData/milk";
@@ -17,5 +17,5 @@ export default function productsToArrData(categoryArray) {
     seaFood: seaFood(),
     hygiene: hygiene(),
   };
-  dragItemsToggle(productsList, categoryArray);
+  toggleIndex(productsList, categoryArray);
 }

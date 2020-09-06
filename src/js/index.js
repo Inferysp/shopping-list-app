@@ -1,21 +1,14 @@
-import showDate from "./showDate";
-import shoppingListHolderAdd from "./listHolder";
-import eachProductProcess from "./eachProductProcess";
-import productsData from "./productsData/productsData";
-import printListToPdf from "./printListToPdf";
+import addListHolder from './addListHolder';
+import eachProductProcess from './inputModules/eachProductProcess';
+import productsDataAndToggle from './dragAndDropModules/productsDataAndToggle';
+import printListToPdf from './printListToPdf';
+import showDate from './showDate';
+import categoryList from './categoryList';
 
-const categoryArray = [
-  "vegetables",
-  "fruits",
-  "milk",
-  "baking",
-  "meat",
-  "seaFood",
-  "hygiene",
-];
+const categoryArray = categoryList();
 
-showDate();
-productsData(categoryArray);
-shoppingListHolderAdd(categoryArray);
+addListHolder(categoryArray);
 eachProductProcess(categoryArray);
+productsDataAndToggle(categoryArray);
 printListToPdf();
+showDate();
