@@ -1,12 +1,27 @@
-Shopping list aplication.
+# Shopping list aplication.
 
-...in progress. Aplication works but I need to finish a few things.
+## General info
 
-Application use:
+### ...in progress. Aplication works but I need to finish a few things.
 
-1. clone repository
-2. cd ./shopping-list-app
-3. npm install
-4. npm start
+## Setup:
+```
+$ clone repository
+$ cd ./shopping-list-app
+$ npm install
+$ npm start
+```
 
-Used utilities: webpack, JS(ES6), SASS, Milligram, eslint, moment.js, jspdf.
+## Technologies:
+
+* webpack
+* eslint
+* JS(ES6)
+* SASS
+* Milligram
+* moment.js
+* jspdf
+
+## Sources
+This project is inspired by MDB Bootstrap recruitment project (https://mdbootstrap.com/)
+and use mdb-webpack-starter [@eericon](https://github.com/mdbootstrap/mdb-webpack-starter) 
