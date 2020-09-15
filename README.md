@@ -24,4 +24,4 @@ $ npm start
 
 ## Sources
 This project is inspired by MDB Bootstrap recruitment project (https://mdbootstrap.com/)
-and use [mdb-webpack-starter](https://github.com/mdbootstrap/mdb-webpack-starter) 
+and uses [mdb-webpack-starter](https://github.com/mdbootstrap/mdb-webpack-starter) 
