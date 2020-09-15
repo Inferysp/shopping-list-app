@@ -21,6 +21,7 @@ $ npm start
 * Milligram
 * moment.js
 * jspdf
+* HTML Drag and Drop interfaces
 
 ## Sources
 This project is inspired by MDB Bootstrap recruitment project (https://mdbootstrap.com/)
